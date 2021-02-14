@@ -1,0 +1,14 @@
+[
+  {
+    "name": "checkHealth.sh",
+    "description": "Checks the health of a server",
+    "scriptPath": "/path/to/checkHealth",
+    "servers": ["test"]
+  },
+  {
+    "name": "mcHealth.sh",
+    "description": "Checks the health of a minecraft server instance",
+    "scriptPath": "/path/to/mcHealth",
+    "servers": []
+  }
+]
