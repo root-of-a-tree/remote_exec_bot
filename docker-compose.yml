@@ -1,0 +1,6 @@
+services:
+  remote-exec-bot:
+    image: remote-exec-bot
+    container_name: remote-exec-bot
+    network_mode: "host"
+    restart: "always"
