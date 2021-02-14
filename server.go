@@ -1,7 +1,7 @@
 package main
 
+//from https://github.com/bwmarrin/discordgo/blob/master/examples/pingpong/main.go
 import (
-	"flag"
 	"fmt"
 	"os"
 	"os/signal"
@@ -10,15 +10,29 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+const (
+	SERVERS_CONFIG_PATH = "./servers.json"
+	SCRIPTS_CONFIG_PATH = "./scripts.json"
+	TOKEN_ENV_VAR       = "DISCORD_TOKEN"
+)
+
 // Variables used for command line parameters
 var (
 	Token string
 )
 
-func init() {
+// func init() {
 
-	flag.StringVar(&Token, "t", "", "Bot Token")
-	flag.Parse()
+// 	flag.StringVar(&Token, "t", "", "Bot Token")
+// 	flag.Parse()
+// }
+
+func init() {
+	Token, ok := os.LookupEnv(TOKEN_ENV_VAR)
+	if !ok {
+		fmt.Println("No environment variable found for", TOKEN_ENV_VAR)
+		os.Exit(1)
+	}
 }
 
 func main() {
