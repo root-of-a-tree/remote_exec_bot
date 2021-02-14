@@ -30,9 +30,9 @@ type (
     }
 
     Configuration struct {
-	Servers []Server `json:"servers"`
-	Scripts []Script `json:"scripts"`
-	Token string `json:"token"`
+	Servers []Server
+	Scripts []Script
+	Token string
     }
 )
 
