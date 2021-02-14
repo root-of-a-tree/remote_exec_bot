@@ -9,36 +9,16 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-// Variables used for command line parameters
-// var (
-// 	Token string
-// )
-
-const (
-	SERVERS_CONFIG_PATH = "./servers.json"
-	SCRIPTS_CONFIG_PATH = "./scripts.json"
-	TOKEN_ENV_VAR       = "DISCORD_TOKEN"
-)
-
-// func init() {
-
-// 	flag.StringVar(&Token, "t", "", "Bot Token")
-// 	flag.Parse()
-// }
-
-func init() {
-	Token, ok := os.LookupEnv(TOKEN_ENV_VAR)
-	if !ok {
-		fmt.Println("No environment variable found for", TOKEN_ENV_VAR)
-		//fmt.Println(Token)
-		os.Exit(1)
-	}
-}
-
 func main() {
+	config, err := InitConfig()
+	if err != nil {
+		fmt.Println("error initializing bot configuration,", err)
+		return
+	}
+	fmt.Printf("Initialized config: %#v\n", config)
 
 	// Create a new Discord session using the provided bot token.
-	dg, err := discordgo.New("Bot " + Token)
+	dg, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
 		return

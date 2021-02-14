@@ -1,4 +1,4 @@
-module example.com
+module remote_exec_bot
 
 go 1.15
 
