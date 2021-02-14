@@ -40,3 +40,6 @@ list of json objects with the following fields:
 2. Golang hello world web app inside a docker container
 3. hello world discord app
 4. ...then we worry about executing scripts over SSH
+
+
+
