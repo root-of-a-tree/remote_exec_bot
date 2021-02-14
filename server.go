@@ -9,15 +9,15 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+// Variables used for command line parameters
+// var (
+// 	Token string
+// )
+
 const (
 	SERVERS_CONFIG_PATH = "./servers.json"
 	SCRIPTS_CONFIG_PATH = "./scripts.json"
 	TOKEN_ENV_VAR       = "DISCORD_TOKEN"
-)
-
-// Variables used for command line parameters
-var (
-	Token string
 )
 
 // func init() {
@@ -30,6 +30,7 @@ func init() {
 	Token, ok := os.LookupEnv(TOKEN_ENV_VAR)
 	if !ok {
 		fmt.Println("No environment variable found for", TOKEN_ENV_VAR)
+		//fmt.Println(Token)
 		os.Exit(1)
 	}
 }
