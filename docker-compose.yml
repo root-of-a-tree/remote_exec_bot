@@ -4,3 +4,5 @@ services:
     container_name: remote-exec-bot
     network_mode: "host"
     restart: "always"
+    environment:
+      - DISCORD_TOKEN
