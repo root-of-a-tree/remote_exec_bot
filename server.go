@@ -1,6 +1,5 @@
 package main
 
-//from https://github.com/bwmarrin/discordgo/blob/master/examples/pingpong/main.go
 import (
 	"fmt"
 	"os"
