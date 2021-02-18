@@ -1,7 +1,7 @@
 services:
-  remote-exec-bot:
-    image: remote-exec-bot
-    container_name: remote-exec-bot
+  rex:
+    image: rex
+    container_name: rex
     network_mode: "host"
     restart: "always"
     environment:

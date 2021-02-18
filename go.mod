@@ -1,4 +1,4 @@
-module remote_exec_bot
+module rex
 
 go 1.15
 

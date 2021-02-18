@@ -1,0 +1,43 @@
+- become: yes
+  hosts: all
+  name: Provision VM
+  tasks:
+    - name: Setup docker
+      include_role:
+        name: geerlingguy.docker
+      vars:
+        docker_users:
+          - rex
+        docker_compose_version: "1.28.0"
+
+    - name: Copy docker-compose file
+      ansible.builtin.copy:
+        src: ../docker-compose.yml
+        dest: /home/rex/docker-compose.yml
+        owner: rex
+        group: rex
+        mode: '0644'
+
+    - name: Copy docker credentials
+      ansible.builtin.copy:
+        src: ../terraform/credentials.json
+        dest: /home/rex/credentials.json
+        owner: rex
+        group: rex
+        mode: '0644'
+
+    - name: Docker login
+      ansible.builtin.shell: cat /home/rex/credentials.json | docker login -u _json_key --password-stdin https://us.gcr.io
+
+    - name: Docker pull
+      ansible.builtin.shell: 'docker pull {{ imageID }}'
+
+    - name: Docker tag
+      ansible.builtin.shell: 'docker tag {{ imageID }} rex:latest'
+
+    - name: Start docker-compose
+      ansible.builtin.shell: docker-compose up -d
+      args:
+        chdir: /home/rex
+      environment:
+        DISCORD_TOKEN: "{{ lookup('env', 'DISCORD_TOKEN') }}"
