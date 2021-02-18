@@ -1,4 +1,4 @@
-remote_exec_bot
+rex
 terraform/credentials.json
 terraform/.terraform
 terraform/.terraform.lock.hcl

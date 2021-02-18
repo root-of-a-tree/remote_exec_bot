@@ -21,4 +21,4 @@ nuke:stop
 	-docker image rm rex:latest
 
 clean:
-	-rm ./remote_exec_bot
+	-rm ./rex
