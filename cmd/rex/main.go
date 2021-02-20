@@ -25,6 +25,9 @@ func main() {
 		return
 	}
 
+	// TODO: use slash command!
+	// dg.ApplicationCommandCreate(appID, guildID, cmd)
+
 	// Register the messageCreate func as a callback for MessageCreate events.
 	dg.AddHandler(messageCreate)
 
