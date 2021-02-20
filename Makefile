@@ -8,11 +8,8 @@ push:
 infra:
 	-terraform -chdir=./terraform apply 
 
-provision:
-	-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u rex -i '34.122.190.139,' --private-key '~/.ssh/id_rsa' -e '~/.ssh/id_rsa.pub' ansible/rex.yml --extra-vars "{\"imageID\":\"us.gcr.io/remote-exec-bot-305203/rex:latest\"}"
-
 run:
-	-docker-compose up -d
+	-docker-compose up
 
 stop:
 	-docker-compose down
