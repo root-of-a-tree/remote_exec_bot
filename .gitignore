@@ -1,4 +1,4 @@
-rex
+./rex
 terraform/credentials.json
 terraform/.terraform
 terraform/.terraform.lock.hcl
